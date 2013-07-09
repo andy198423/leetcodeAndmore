@@ -1,4 +1,4 @@
-class Solution {
+class Solution { // my method
 public:
     bool canJump(int A[], int n) {
         // Start typing your C/C++ solution below
@@ -26,5 +26,20 @@ public:
         }
         
         return result[n-1]; 
+    }
+};
+
+
+class Solution {  // better method
+public:
+    bool canJump(int A[], int n) {
+        int i = 0;
+        int next = 0;
+        while (i <= next) {
+            next = max(next, i + A[i]);
+            if (next >= n - 1) return true;
+            i++;
+        }
+        return false;
     }
 };
